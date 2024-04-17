@@ -7,7 +7,11 @@ import css from "./App.module.css";
 
 
 class App extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+    
+   this.state = {
     contacts: [
       { id: nanoid(), name: "Rosie Simpson", number: "459-12-56" },
       { id: nanoid(), name: "Hermione Kline", number: "443-89-12" },
@@ -15,7 +19,9 @@ class App extends Component {
       { id: nanoid(), name: "Annie Copeland", number: "227-91-26" },
     ],
     filter: "",
-  };
+  }}
+ 
+  
 
 
 // перевірка контакту, чи вона є в базі даних чи ні
@@ -68,7 +74,7 @@ deleteFunction={this.deleteUser} />
   );
 }
 }
-  
+
 
 
 export default App;

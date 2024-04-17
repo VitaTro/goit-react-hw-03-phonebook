@@ -10,6 +10,7 @@ const INITIAL_USER = {
 
 
 class ContactAdd extends Component {
+ 
 user = { ...INITIAL_USER };
 
 // // event.currentTarget в React — це властивість об’єкта події, яка ідентифікує елемент, до якого прикріплений обробник події. 
