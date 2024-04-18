@@ -17,6 +17,8 @@ class App extends Component {
     filter: "",
   }
  
+  // як тільки "ладується" сторінка, то запускається оцей життєвий цикл.
+// він дозволяє отримувати доступ до будь-яких посилань мого ДОМу
   componentDidMount() {
     const storedContacts = localStorage.getItem('contacts') 
     if (storedContacts) {
@@ -42,6 +44,7 @@ addNewContact = (newContact) => {
     const { contacts } = this.state;
     contacts.push(newContact);
 this.setState({ contacts: contacts}); 
+// при додаванні контакту всі дані відображаються в локал сторедж 
 localStorage.setItem('contacts', JSON.stringify(contacts));
   } else {
     // <Alert className={css.error} message={`${newContact.name} is already in contacts`} />
@@ -59,6 +62,7 @@ deleteUser = (evt) => {
   const { contacts } = this.state;
   const filtered = contacts.filter((contact) => contact.id !== evt.target.id);
   this.setState({ contacts: filtered });
+  // при видаленні контакту всі дані видаляються з локал сторедж
   localStorage.setItem('contacts', JSON.stringify(filtered));
 };
 render() {
