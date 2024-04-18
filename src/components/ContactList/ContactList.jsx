@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Contact from "./Contact/Contact";
-
+import css from "./ContactList.module.css";
 
 // const ContactList = ({ contacts, filter }) => {
 //  const  filteredContacts = contacts.filter ((contact) =>
@@ -22,8 +22,8 @@ import Contact from "./Contact/Contact";
 
 const ContactList =   ({ contacts, filter, deleteFunction }) => {
    return(
-  <div>
-    <ul>
+  <div className={css.primary}>
+    <ul className={css.list}>
         {contacts
         .filter((contact) => contact.name.toLowerCase().includes(filter.toLowerCase()))
         .map((contact) => {
@@ -33,7 +33,7 @@ const ContactList =   ({ contacts, filter, deleteFunction }) => {
               <button 
               id = {contact.id} 
               onClick={deleteFunction} 
-              >
+              className={css.button}>
                 Delete
                 </button>
             </Contact>
