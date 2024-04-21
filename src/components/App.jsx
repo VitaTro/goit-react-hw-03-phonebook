@@ -29,7 +29,11 @@ class App extends Component {
       this.setState({ contacts: JSON.parse(storedContacts) });
     }
   }
-  
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem("contacts",JSON.stringify(this.state.contacts));
+    }
+  }
 
 
 // перевірка контакту, чи вона є в базі даних чи ні
@@ -69,6 +73,8 @@ deleteUser = (evt) => {
   // при видаленні контакту всі дані видаляються з локал сторедж
   localStorage.setItem('contacts', JSON.stringify(filtered));
 };
+
+
 render() {
    return (
     <div className={css.primary}>
